@@ -1,0 +1,32 @@
+<h1><%= @recipe.title %></h1>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @recipe.ingredients %>
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @recipe.instructions %>
+</p>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>
+
+<h2>Comments</h2>
+<% @recipe.comments.each do |comment| %>
+  <p>
+    <%= comment.content %>
+    <%= link_to "Delete", [comment.recipe, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+  </p>
+<% end %>
+
+<h3>Add a comment:</h3>
+<%= form_with(model: [ @recipe, Comment.new ], local: true) do |form| %>
+  <div class="field">
+    <%= form.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

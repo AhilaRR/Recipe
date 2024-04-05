@@ -1,0 +1,6 @@
+<h1>Profile</h1>
+
+<p><strong>Bio:</strong> <%= @profile.bio %></p>
+<p><strong>Website:</strong> <%= link_to @profile.website, @profile.website, target: "_blank", rel: "noopener" if @profile.website.present? %></p>
+
+<%= link_to 'Edit Profile', edit_profile_path %>

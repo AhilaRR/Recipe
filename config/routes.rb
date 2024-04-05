@@ -1,10 +1,24 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Devise routes for user authentication
+  devise_for :users
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  # Root path of your application
+  root 'recipes#index'
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Routes for recipes, with nested routes for comments
+  resources :recipes do
+    resources :comments, only: [:create, :destroy]
+  end
+
+  # Routes for categories
+  resources :categories, only: [:index, :new, :create, :show]
+
+  # Singular resource for profile as each user has only one profile
+  # Assuming the profile is managed under a user's scope
+  resource :profile, only: [:show, :edit, :update]
+
+  # Or if you want profiles to be directly associated with user IDs in the route:
+  # resources :users do
+  #   resource :profile, only: [:show, :edit, :update]
+  # end
 end

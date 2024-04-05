@@ -1,0 +1,12 @@
+<h1>Recipes</h1>
+
+<%= link_to 'New Recipe', new_recipe_path %>
+
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li>
+      <%= link_to recipe.title, recipe %>
+      - Posted by <%= recipe.user.email %>
+    </li>
+  <% end %>
+</ul>

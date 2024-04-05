@@ -13,3 +13,57 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1,
+h2,
+h3 {
+    color: #333;
+}
+
+.field,
+.actions {
+    margin-top: 20px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    /* Ensures padding does not affect overall width */
+}
+
+.actions input[type="submit"] {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.actions input[type="submit"]:hover {
+    background-color: #004494;
+}
+
+#error_explanation {
+    color: red;
+}
+
+ul {
+    list-style-type: none;
+}
