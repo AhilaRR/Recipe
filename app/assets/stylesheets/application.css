@@ -15,16 +15,40 @@
  */
 
 body {
+    background-color: #417fbe;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    position: relative;
+}
+
+header nav {
+    align-items: center;
+    background-color: #095097;
+    display: flex;
+    padding: 0.5rem;
+}
+
+header nav a {
+    margin-right: 1rem;
+    color: rgb(166, 255, 0);
+    /* color: #007bff; */
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
 }
 
 h1,
 h2,
 h3 {
-    color: #333;
+    color: #d8d8d8;
+}
+
+a {
+    color: aliceblue;
+    font-weight: bold;
 }
 
 .field,
@@ -44,6 +68,7 @@ h3 {
     border-radius: 5px;
     border: 1px solid #ddd;
     box-sizing: border-box;
+    background-color: #004494;
     /* Ensures padding does not affect overall width */
 }
 
@@ -66,4 +91,15 @@ h3 {
 
 ul {
     list-style-type: none;
+}
+
+.notice,
+.alert {
+    background-color: #001c3d;
+    border-radius: 5px;
+    color: #fff;
+    padding: 15px;
+    position: absolute;
+    right: 0px;
+    top: 30px;
 }

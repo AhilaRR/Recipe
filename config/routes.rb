@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   # Routes for recipes, with nested routes for comments
   resources :recipes do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create] do
+      get 'destroy', on: :member
+    end
   end
 
   # Routes for categories
