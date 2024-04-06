@@ -1,10 +1,35 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-User.create(email: 'test@example.com', password: 'password', password_confirmation: 'password')
+# Create Users
+user1 = User.create!(email: 'user1@example.com', password: 'password', password_confirmation: 'password')
+user2 = User.create!(email: 'user2@example.com', password: 'password', password_confirmation: 'password')
+
+# Create Categories
+italian = Category.create!(name: 'Italian')
+mexican = Category.create!(name: 'Mexican')
+dessert = Category.create!(name: 'Dessert')
+
+# Create Recipes
+Recipe.create!([
+  {
+    title: 'Spaghetti Carbonara',
+    ingredients: 'Pasta, Eggs, Parmesan Cheese, Bacon',
+    instructions: 'Cook pasta. Mix eggs and cheese. Combine pasta with egg mixture and cooked bacon.',
+    user: user1,
+    categories: [italian]
+  },
+  {
+    title: 'Tacos',
+    ingredients: 'Tortillas, Ground Beef, Cheese, Lettuce, Tomato',
+    instructions: 'Cook ground beef. Fill tortillas with beef and toppings.',
+    user: user2,
+    categories: [mexican]
+  },
+  {
+    title: 'Chocolate Cake',
+    ingredients: 'Flour, Sugar, Cocoa Powder, Baking Powder, Eggs',
+    instructions: 'Mix dry ingredients. Add eggs and mix. Bake at 350 degrees for 30 minutes.',
+    user: user1,
+    categories: [dessert]
+  }
+])
+
+puts "Seed data loaded!"

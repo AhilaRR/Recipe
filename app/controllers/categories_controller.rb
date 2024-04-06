@@ -20,7 +20,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @recipes = @category.recipes # If you want to list recipes belonging to a category
+    # @recipes = @category.recipes # If you want to list recipes belonging to a category
+    @category = Category.find(params[:id])
   end
 
   private
