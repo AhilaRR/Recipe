@@ -72,24 +72,6 @@ One-to-Many: A user can have many comments, but each comment is posted by one us
 
 Many-to-Many: A recipe can belong to many categories, and a category can include many recipes. The Categorization table serves as a join table facilitating this relationship.
 
-# Textual Representation
-
-(User) 1 -------- _ (Recipe) 1 -------- _ (Comment)
-| |
-|1 |_
-| |
-| (Category) _ ------ \* (Categorization)
-|
-|1
-|
-(Profile)
-
-1 -- \* represents a one-to-many relationship.
-
-- -- 1 represents a many-to-one relationship, noting a direct relationship between Recipes and Categories.
-  1 -- 1 represents a one-to-one relationship.
-- -- \*represents a many-to-many relationship
-
 # Test user:
 
 email: 'user1@example.com', password: 'password'
