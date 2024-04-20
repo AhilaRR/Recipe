@@ -13,6 +13,10 @@ class User < ApplicationRecord
 
   after_create :create_user_profile
 
+  def generate_jwt
+    JwtService.encode({ user_id: self.id })
+  end
+
   private
 
   def create_user_profile

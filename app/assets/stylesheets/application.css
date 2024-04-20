@@ -40,6 +40,21 @@ header nav a:hover {
     text-decoration: underline;
 }
 
+header nav button {
+    cursor: pointer;
+    border: none;
+    margin-right: 1rem;
+    background-color: #004494;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+header nav button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 h1,
 h2,
 h3 {
